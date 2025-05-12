@@ -1,0 +1,71 @@
+# ====================
+# 🌐 FRONTEND (React)
+# ====================
+/frontend/node_modules/
+/frontend/.cache/
+/frontend/dist/
+/frontend/build/
+/frontend/.env
+/frontend/.env.*.local
+/frontend/.DS_Store
+
+# Build & Coverage
+/frontend/*.tsbuildinfo
+/frontend/coverage/
+frontend/*.tgz
+
+# ====================
+# 🖥 BACKEND (Express)
+# ====================
+/backend/node_modules/
+/backend/dist/
+/backend/logs/
+/backend/*.log
+/backend/*.log.*
+/backend/npm-debug.log*
+/backend/yarn-debug.log*
+/backend/yarn-error.log*
+/backend/pnpm-debug.log*
+
+# Environment
+/backend/.env
+/backend/.env.*.local
+
+# Prisma
+/backend/.prisma/
+/backend/prisma/migrations/
+!/backend/prisma/migrations/*.sql  # saqlashni istasangiz
+
+# SQLite yoki boshqa lokal bazalar
+/backend/*.sqlite
+/backend/*.sqlite3
+
+# Database backups or seed files
+/backend/*.seed.js
+/backend/*.seed.ts
+/backend/*.bak
+
+# ====================
+# 🐳 DOCKER
+# ====================
+/docker-compose.override.yml
+/docker-compose.dev.yml
+**/.dockerignore
+
+# ====================
+# ⚙️ GLOBAL
+# ====================
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.pid
+*.tsbuildinfo
+*.tgz
+*.log
+*.env.local
+*.env.*.local
+
+# Optional: remove generated Prisma Client if not needed
+/backend/node_modules/.prisma/
+

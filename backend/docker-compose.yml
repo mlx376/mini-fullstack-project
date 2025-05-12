@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: m3126420M
+      POSTGRES_DB: user_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: backend
+    ports:
+      - "5050:5050"
+    environment:
+      DATABASE_URL: postgresql://postgres:m3126420M@postgres:5432/user_db?schema=public
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata:
