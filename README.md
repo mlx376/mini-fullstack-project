@@ -101,6 +101,8 @@ Base URL: `http://localhost:5050`
 
 ## 📜 License
 
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request.
+
 This project is licensed under the **MIT License** — use it freely, modify it, and learn from it.
 
 ---
