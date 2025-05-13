@@ -1,12 +1,95 @@
-# React + Vite
+# ⚛️ React Frontend — Vite + Axios + React Hook Form + SCSS + Toastify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple and clean React frontend designed for user CRUD operations, built with:
 
-Currently, two official plugins are available:
+- **React** — component-based UI library
+- **Axios** — promise-based HTTP client
+- **React Hook Form** — flexible form handler
+- **Yup** — schema-based validation
+- **Sass (SCSS)** — modern CSS preprocessor
+- **React Toastify** — elegant toast notifications
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/axmadvsss/mini-fullstack-project.git
+cd mini-fullstack-project/frontend
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the Dev Server
+
+```bash
+npm run dev
+```
+
+Visit: [http://localhost:5173](http://localhost:5173) (or whatever port Vite uses)
+
+> ⚠️ Ensure the backend is running at `http://localhost:5050`
+
+---
+
+## 📁 Project Structure
+
+```text
+frontend/
+├── src/
+│   ├── api/axios.js         # Axios instance with base URL
+│   ├── pages/Users.jsx      # Main UI for user CRUD
+│   ├── styles/main.scss     # Global SCSS styles
+│   ├── App.jsx              # Main layout and routes
+│   └── main.jsx             # Entry point for React app
+├── public/
+│   └── ...                  # Static files
+├── index.html               # Main HTML entry
+└── vite.config.js           # Vite configuration
+```
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint        | Description       |
+|--------|------------------|-------------------|
+| GET    | `/users`         | Fetch all users   |
+| POST   | `/users`         | Create a new user |
+| PUT    | `/users/:id`     | Update user       |
+| DELETE | `/users/:id`     | Delete user       |
+
+---
+
+## 🧪 Sample Request Body
+
+```json
+{
+  "name": "Ali",
+  "email": "ali@example.com"
+}
+```
+
+---
+
+## 📸 UI Preview
+
+![User Interface Screenshot](../frontend/ui-photo.png)
+
+---
+
+## 📜 License
+
+Licensed under the **MIT License** — use it freely for learning or production.
+
+---
+
+## 👨‍💻 Author
+
+Created with ❤️ by **Madamin Axmadov**, 2025
