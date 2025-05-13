@@ -58,60 +58,84 @@ export default function Users() {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container" role="main">
             <ToastContainer />
-            <h2>
-                {editingUser
-                    ? 'Edit User'
-                    : 'Add New User'}
-            </h2>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    {...register('name')}
-                    required
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    {...register('email')}
-                    required
-                />
+            <aside className="warning-alert" role="alert">
+                ⚠️ This application depends on a locally running backend API (usually at{' '}
+                <code>https://axmadvsss.github.io/mini-fullstack-project/</code>). If the backend is offline,
+                user operations (fetch, add, update, delete) will not work. This is expected behavior.
+            </aside>
 
-                <button type="submit">
-                    {editingUser ? 'Save' : 'Add'}
-                </button>
+            <section className="user-management">
+                <header className="form-header">
+                    <h2>{editingUser ? 'Edit User' : 'Add New User'}</h2>
+                </header>
 
-                {editingUser && (
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setEditingUser(null);
-                            reset();
-                        }}
-                    >
-                        Cancel
-                    </button>
-                )}
-            </form>
+                <form onSubmit={handleSubmit(onSubmit)} className="user-form">
+                    <input
+                        type="text"
+                        placeholder="Enter name"
+                        {...register('name')}
+                        required
+                        aria-label="Name"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Enter email"
+                        {...register('email')}
+                        required
+                        aria-label="Email"
+                    />
 
-            <ul>
-                {users.map((u) => (
-                    <li key={u.id}>
-                        <span>
-                            {u.name} ({u.email})
-                        </span>
-                        <span>
-                            <button onClick={() => handleEdit(u)}>✏️</button>
-                            <button onClick={() => handleDelete(u.id)}>
-                                🗑
+                    <div className="form-actions">
+                        <button type="submit" className="submit-btn">
+                            {editingUser ? 'Update' : 'Add'}
+                        </button>
+
+                        {editingUser && (
+                            <button
+                                type="button"
+                                className="cancel-btn"
+                                onClick={() => {
+                                    setEditingUser(null);
+                                    reset();
+                                }}
+                            >
+                                Cancel
                             </button>
-                        </span>
-                    </li>
-                ))}
-            </ul>
+                        )}
+                    </div>
+                </form>
+
+                <ul className="user-list">
+                    {users.map((u) => (
+                        <li key={u.id} className="user-item">
+                            <div className="user-info">
+                                <strong>{u.name}</strong> <span className="user-email">({u.email})</span>
+                            </div>
+                            <div className="user-actions">
+                                <button
+                                    onClick={() => handleEdit(u)}
+                                    aria-label={`Edit ${u.name}`}
+                                    title={`Edit ${u.name}`}
+                                    className="edit-btn"
+                                >
+                                    ✏️
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(u.id)}
+                                    aria-label={`Delete ${u.name}`}
+                                    title={`Delete ${u.name}`}
+                                    className="delete-btn"
+                                >
+                                    🗑
+                                </button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </section>
         </div>
     );
 }
