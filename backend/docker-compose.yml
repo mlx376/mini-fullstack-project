@@ -4,11 +4,11 @@ services:
   postgres:
     image: postgres:15
     restart: always
-    container_name: postgres
+    container_name: user_db-postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: m3126420M
-      POSTGRES_DB: user_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -16,11 +16,11 @@ services:
 
   backend:
     build: .
-    container_name: backend
+    container_name: user_db-backend
     ports:
       - "5050:5050"
     environment:
-      DATABASE_URL: postgresql://postgres:m3126420M@postgres:5432/user_db?schema=public
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?schema=public
     depends_on:
       - postgres
     volumes:
